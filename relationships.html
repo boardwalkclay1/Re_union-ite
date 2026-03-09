@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Relationships • Our Family Reunion</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script defer src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-left">
+    <span class="logo">Our Family Reunion</span>
+  </div>
+  <div class="app-header-right">
+    <div class="theme-toggle">
+      <button id="blueTheme">Blue & White</button>
+      <button id="redTheme">Red & Black</button>
+    </div>
+  </div>
+</header>
+
+<main class="app-main">
+  <section class="app-card wide">
+    <h1>Who’s who in your family?</h1>
+    <p class="app-subtitle">
+      Add your mother, father, brothers, sisters, and children. We’ll use this to build your family web.
+    </p>
+
+    <div class="relationship-layout">
+      <div class="relationship-column">
+        <h2>Parents</h2>
+        <form class="app-form">
+          <label>
+            <span>Mother</span>
+            <input type="text" placeholder="Search or type name">
+          </label>
+          <label>
+            <span>Father</span>
+            <input type="text" placeholder="Search or type name">
+          </label>
+        </form>
+      </div>
+
+      <div class="relationship-column">
+        <h2>Siblings</h2>
+        <form class="app-form">
+          <label>
+            <span>Add sibling</span>
+            <input type="text" placeholder="Search or type name">
+          </label>
+          <button type="button" class="button-secondary small">Add to list</button>
+
+          <ul class="pill-list">
+            <!-- Example static pills -->
+            <li class="pill">Example Sibling 1</li>
+            <li class="pill">Example Sibling 2</li>
+          </ul>
+        </form>
+      </div>
+
+      <div class="relationship-column">
+        <h2>Children</h2>
+        <form class="app-form">
+          <label>
+            <span>Add child</span>
+            <input type="text" placeholder="Search or type name">
+          </label>
+          <button type="button" class="button-secondary small">Add to list</button>
+
+          <ul class="pill-list">
+            <li class="pill">Example Child 1</li>
+          </ul>
+        </form>
+      </div>
+    </div>
+
+    <div class="form-actions right">
+      <button class="button-primary" onclick="window.location.href='dashboard.html'">
+        Continue to dashboard
+      </button>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
