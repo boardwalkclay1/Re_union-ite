@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Family Group • Our Family Reunion</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script defer src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-left">
+    <span class="logo">Our Family Reunion</span>
+  </div>
+  <div class="app-header-right">
+    <div class="theme-toggle">
+      <button id="blueTheme">Blue & White</button>
+      <button id="redTheme">Red & Black</button>
+    </div>
+  </div>
+</header>
+
+<main class="app-main">
+  <section class="app-card">
+    <h1>Choose your family group</h1>
+    <p class="app-subtitle">
+      Join an existing family or create a new one for your branch.
+    </p>
+
+    <div class="two-column">
+      <div class="column">
+        <h2>Join a family group</h2>
+        <p class="muted">Search for your family name or branch.</p>
+
+        <form class="app-form" onsubmit="event.preventDefault(); window.location.href='relationships.html';">
+          <label>
+            <span>Search family name</span>
+            <input type="text" placeholder="Example: Johnson Family – Alabama">
+          </label>
+
+          <button type="submit" class="button-primary full-width">Join selected group</button>
+        </form>
+      </div>
+
+      <div class="column">
+        <h2>Create a new family group</h2>
+        <p class="muted">If your family isn’t listed yet, start a new space.</p>
+
+        <form class="app-form" onsubmit="event.preventDefault(); window.location.href='relationships.html';">
+          <label>
+            <span>Family group name</span>
+            <input type="text" required placeholder="Example: Williams Family – Georgia Branch">
+          </label>
+
+          <label>
+            <span>Description</span>
+            <textarea rows="3" placeholder="Short description of this family group"></textarea>
+          </label>
+
+          <button type="submit" class="button-secondary full-width">Create & Continue</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
