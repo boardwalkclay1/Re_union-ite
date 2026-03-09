@@ -1,0 +1,68 @@
+:root {
+  --font-family: system-ui, sans-serif;
+}
+
+/* BLUE THEME */
+.theme-blue {
+  --bg: #f5f8ff;
+  --bg-alt: #ffffff;
+  --primary: #1f6feb;
+  --primary-soft: rgba(31, 111, 235, 0.12);
+  --text-main: #0b1020;
+  --text-muted: #6b7280;
+  --border-subtle: #d1d5db;
+}
+
+/* RED THEME */
+.theme-red {
+  --bg: #050509;
+  --bg-alt: #111827;
+  --primary: #ef4444;
+  --primary-soft: rgba(239, 68, 68, 0.16);
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --border-subtle: #374151;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.button-primary {
+  background: var(--primary);
+  color: white;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  background: var(--bg-alt);
+  color: var(--primary);
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.button-secondary:hover {
+  background: var(--primary-soft);
+}
