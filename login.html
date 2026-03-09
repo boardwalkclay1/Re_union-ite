@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login • Our Family Reunion</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script defer src="js/theme.js"></script>
+</head>
+<body>
+
+<header class="auth-header">
+  <a href="index.html" class="logo">Our Family Reunion</a>
+  <div class="theme-toggle">
+    <button id="blueTheme">Blue & White</button>
+    <button id="redTheme">Red & Black</button>
+  </div>
+</header>
+
+<main class="auth-main">
+  <section class="auth-card">
+    <h1>Welcome back</h1>
+    <p class="auth-subtitle">Log in to see your family web and stay connected.</p>
+
+    <form class="auth-form" onsubmit="event.preventDefault(); window.location.href='nickname.html';">
+      <label>
+        <span>Email</span>
+        <input type="email" required placeholder="you@example.com">
+      </label>
+
+      <label>
+        <span>Password</span>
+        <input type="password" required placeholder="••••••••">
+      </label>
+
+      <button type="submit" class="button-primary full-width">Login</button>
+    </form>
+
+    <p class="auth-footer-text">
+      Don’t have an account?
+      <a href="signup.html">Sign up</a>
+    </p>
+  </section>
+</main>
+
+</body>
+</html>
