@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/auth.css">
   <script defer src="js/theme.js"></script>
+  <script defer src="js/api.js"></script>
 </head>
+
 <body>
 
 <header class="auth-header">
@@ -23,19 +25,21 @@
     <h1>Welcome back</h1>
     <p class="auth-subtitle">Log in to see your family web and stay connected.</p>
 
-    <form class="auth-form" onsubmit="event.preventDefault(); window.location.href='nickname.html';">
+    <form id="loginForm" class="auth-form">
       <label>
         <span>Email</span>
-        <input type="email" required placeholder="you@example.com">
+        <input id="email" type="email" required placeholder="you@example.com">
       </label>
 
       <label>
         <span>Password</span>
-        <input type="password" required placeholder="••••••••">
+        <input id="password" type="password" required placeholder="••••••••">
       </label>
 
       <button type="submit" class="button-primary full-width">Login</button>
     </form>
+
+    <p id="error" style="color: var(--primary); margin-top: 10px;"></p>
 
     <p class="auth-footer-text">
       Don’t have an account?
@@ -43,6 +47,32 @@
     </p>
   </section>
 </main>
+
+<script>
+  const form = document.getElementById("loginForm");
+  const errorBox = document.getElementById("error");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorBox.textContent = "";
+
+    const email = document.getElementById("email").value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    try {
+      const res = await login(email, pass);
+
+      // Save token
+      localStorage.setItem("ofr_token", res.token);
+
+      // Redirect to dashboard or nickname setup
+      window.location.href = "dashboard.html";
+
+    } catch (err) {
+      errorBox.textContent = err.error || "Login failed.";
+    }
+  });
+</script>
 
 </body>
 </html>
