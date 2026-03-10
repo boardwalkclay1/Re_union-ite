@@ -1,0 +1,14 @@
+name = "our-family-reunion"
+main = "api/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "reunionite"
+database_id = "0fbf49c6-2797-4e2e-89df-a4de7dbbc879"
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "35884b1a65f0423d93c809dc5144c153"
