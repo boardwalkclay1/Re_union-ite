@@ -1,47 +1,75 @@
+// ---------------------------------------------------------------------------
+// API CONFIG
+// ---------------------------------------------------------------------------
 const API_BASE = "/api";
+const TOKEN_KEY = "ofr_token";
 
-function setToken(token) {
-  localStorage.setItem("ofr_token", token);
+// ---------------------------------------------------------------------------
+// TOKEN HELPERS
+// ---------------------------------------------------------------------------
+export function setToken(token) {
+  localStorage.setItem(TOKEN_KEY, token);
 }
 
-function getToken() {
-  return localStorage.getItem("ofr_token");
+export function getToken() {
+  return localStorage.getItem(TOKEN_KEY);
 }
 
-async function api(path, options = {}) {
-  const headers = options.headers || {};
-  headers["Content-Type"] = "application/json";
+export function clearToken() {
+  localStorage.removeItem(TOKEN_KEY);
+}
+
+// ---------------------------------------------------------------------------
+// CORE API WRAPPER
+// ---------------------------------------------------------------------------
+export async function api(path, options = {}) {
+  const headers = {
+    "Content-Type": "application/json",
+    ...(options.headers || {})
+  };
 
   const token = getToken();
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
-  const res = await fetch(API_BASE + path, { ...options, headers });
+  const res = await fetch(API_BASE + path, {
+    ...options,
+    headers
+  });
 
+  // Try to parse JSON safely
   let data = {};
   try {
     data = await res.json();
   } catch (_) {
-    // ignore JSON parse errors (empty responses)
+    // ignore empty or non-JSON responses
   }
 
-  if (!res.ok) throw data;
+  if (!res.ok) {
+    throw data || { error: "Unknown error" };
+  }
+
   return data;
 }
 
-async function signup(email, password) {
+// ---------------------------------------------------------------------------
+// AUTH HELPERS
+// ---------------------------------------------------------------------------
+export async function signup(email, password) {
   const data = await api("/auth/signup", {
     method: "POST",
     body: JSON.stringify({ email, password })
   });
+
   setToken(data.token);
   return data;
 }
 
-async function login(email, password) {
+export async function login(email, password) {
   const data = await api("/auth/login", {
     method: "POST",
     body: JSON.stringify({ email, password })
   });
+
   setToken(data.token);
   return data;
 }
