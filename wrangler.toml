@@ -9,6 +9,13 @@ binding = "DB"
 database_name = "reunionite"
 database_id = "0fbf49c6-2797-4e2e-89df-a4de7dbbc879"
 
-[[kv_namespaces]]
-binding = "SESSIONS"
-id = "35884b1a65f0423d93c809dc5144c153"
+
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "42b29a5e8cb947c58cec90ce7f4a25e2",
+      
+      // Optional: preview_id used when running `wrangler dev` for local dev
+      "preview_id": "<ID_OF_PREVIEW_KV_NAMESPACE_FOR_LOCAL_DEVELOPMENT>"
+    }
+  ]
