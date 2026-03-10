@@ -11,11 +11,19 @@ function getToken() {
 async function api(path, options = {}) {
   const headers = options.headers || {};
   headers["Content-Type"] = "application/json";
+
   const token = getToken();
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
   const res = await fetch(API_BASE + path, { ...options, headers });
-  const data = await res.json().catch(() => ({}));
+
+  let data = {};
+  try {
+    data = await res.json();
+  } catch (_) {
+    // ignore JSON parse errors (empty responses)
+  }
+
   if (!res.ok) throw data;
   return data;
 }
