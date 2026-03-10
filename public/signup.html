@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up • Our Family Reunion</title>
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/auth.css">
-  <script defer src="public/js/theme.js"></script>
-  <script defer src="public/js/api.js"></script>
+
+  <!-- Corrected CSS paths -->
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/auth.css">
+
+  <!-- Corrected JS paths -->
+  <script defer src="/js/theme.js"></script>
+  <script defer src="/js/api.js"></script>
 </head>
 
 <body>
@@ -76,10 +80,8 @@
         body: JSON.stringify({ email, password: pass })
       });
 
-      // Save token
       localStorage.setItem("ofr_token", res.token);
 
-      // Move to nickname setup
       window.location.href = "nickname.html";
 
     } catch (err) {
